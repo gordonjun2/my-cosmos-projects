@@ -12,6 +12,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 
 ## Useful Videos
 - [Blockchain 101 - A Visual Demo](https://www.youtube.com/watch?v=_160oMzblY8)
+- [Alternatives to Proof-of-Work with Tendermint's Jae Kwon | EDCON Toronto 2018](https://www.youtube.com/watch?v=T_FYBKJxlbk&t=155s)
 
 ## Tips
 
