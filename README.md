@@ -13,21 +13,38 @@ A repository to document my learning about Cosmos (aka Interchain).
 ## Useful Videos
 - [Blockchain 101 - A Visual Demo](https://www.youtube.com/watch?v=_160oMzblY8)
 - [Alternatives to Proof-of-Work with Tendermint's Jae Kwon | EDCON Toronto 2018](https://www.youtube.com/watch?v=T_FYBKJxlbk&t=155s)
+- [What Is Cosmos SDK and How to Use It to Customize Your Chain w/ Marko Baricevic of Interchain.](https://www.youtube.com/watch?v=1_ottIKPfI4&t=2s)
 
 ## Tips
 
 ## Useful Information and Websites
+- [Tendermint](https://tendermint.com/)
 - [Light Clients in Tendermint Consensus](https://blog.cosmos.network/light-clients-in-tendermint-consensus-1237cfbda104)
 - [Cosmos SDK Documentation](https://docs.cosmos.network/)
 - [CometBFT Documentation](https://docs.cometbft.com/)
 - [Cosmos Hub Documentaion](https://hub.cosmos.network/)
+- [Inter-Blockchain Communication Protocol](https://ibcprotocol.dev/)
 - [IBC Documentation](https://ibc.cosmos.network/)
 - [Protocol Buffers Documentation](https://protobuf.dev/)
 - [gRPC](https://grpc.io/)
 - [gRPC-Gateway Documentation](https://grpc-ecosystem.github.io/grpc-gateway/)
+- [Tendermint Core (BFT Consensus) in Go](https://github.com/tendermint/tendermint)
 - [Tendermint Go Amino Documentation](https://github.com/tendermint/go-amino)
 - [Docker Hub](https://hub.docker.com/)
 - [The Ultimate Docker Cheat Sheet](https://dockerlabs.collabnix.com/docker/cheatsheet/)
+- [Interchain Market Capitalization Overview](https://cosmos.network/ecosystem/tokens/)
+- [Interchain Ecosystem Overview](https://cosmos.network/ecosystem/apps/?ref=cosmonautsworld)
+- [Interchain Wallets](https://cosmos.network/ecosystem/wallets/)
+- [Map of Zones - Cosmos Network Explorer](https://mapofzones.com/)
+- [Gravity Bridge - Peg-Zone Implementation for Ethereum](https://github.com/cosmos/gravity-bridge)
+- [Ignite CLI Documentation](https://docs.ignite.com/)
+- [CosmWasm](https://cosmwasm.com/)
+- [CosmWasm Documentation](https://docs.cosmwasm.com/docs/)
+- [Ethermint](https://github.com/evmos/ethermint)
+- [MintScan - Interchain Explorer](https://hub.mintscan.io/chains/overview)
+- [MintScan's Validator List](https://www.mintscan.io/cosmos/validators)
+- [The latest gossip on BFT consensus - Practical Byzantine Fault Tolerance](https://arxiv.org/abs/1807.04938)
+- [Checkers Game in Go](https://github.com/batkinson/checkers-go)
 
 ## Testnet Faucet
 
@@ -36,4 +53,5 @@ A repository to document my learning about Cosmos (aka Interchain).
 ## Whitepapers
 - [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
 - [Tendermint: Consensus without Mining](https://tendermint.com/static/docs/tendermint.pdf)
+- [A Network of Distributed Ledgers (Cosmos Whitepaper)](https://v1.cosmos.network/resources/whitepaper)
 
