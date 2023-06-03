@@ -14,6 +14,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Blockchain 101 - A Visual Demo](https://www.youtube.com/watch?v=_160oMzblY8)
 - [Alternatives to Proof-of-Work with Tendermint's Jae Kwon | EDCON Toronto 2018](https://www.youtube.com/watch?v=T_FYBKJxlbk&t=155s)
 - [What Is Cosmos SDK and How to Use It to Customize Your Chain w/ Marko Baricevic of Interchain.](https://www.youtube.com/watch?v=1_ottIKPfI4&t=2s)
+- [Introduction to app.go, Julien Robert, Developer Relations Engineer for the Cosmos SDK.](https://www.youtube.com/watch?v=G6QUIUwYaSU)
 
 ## Tips
 
@@ -45,6 +46,9 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [MintScan's Validator List](https://www.mintscan.io/cosmos/validators)
 - [The latest gossip on BFT consensus - Practical Byzantine Fault Tolerance](https://arxiv.org/abs/1807.04938)
 - [Checkers Game in Go](https://github.com/batkinson/checkers-go)
+- [Mnemonic-Code-Converter (BIP32/BIP39/BIP44/BIP49)](https://www.bip32.net/)
+- [Chain Registry](https://github.com/cosmos/chain-registry)
+- [Cosmos Hub Forum](https://forum.cosmos.network/)
 
 ## Testnet Faucet
 
