@@ -3,6 +3,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 
 ## Learning Journey
 - [Interchain Developer Academy](https://ida.interchain.io/)
+    - The content of Interchain Developer Academy is not fully available to the public. However, some of the content that is available to the public can be found in [Cosmos Developer Portal Tutorial](https://tutorials.cosmos.network/).
     - This repository contains the raw course content from the website (converted from *.mhtml* to *.docx*), projects and quizzes.
     - As Week 1 quiz report is not available yet, it is not certain that all the answers in the quiz are correct. Thus, not academic advice (NAA) XD!
 
@@ -18,8 +19,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [What Is Cosmos SDK and How to Use It to Customize Your Chain w/ Marko Baricevic of Interchain.](https://www.youtube.com/watch?v=1_ottIKPfI4&t=2s)
 - [Introduction to app.go, Julien Robert, Developer Relations Engineer for the Cosmos SDK.](https://www.youtube.com/watch?v=G6QUIUwYaSU)
 - [Cosmos Academy - Running a node Screencast](https://www.youtube.com/watch?v=wNUjkp2PFQI)
-
-## Tips
+- [Cosmos Academy - Your own chain, with Ignite](https://www.youtube.com/watch?v=z1HDh2KdiGI)
 
 ## Useful Information and Websites
 - [Tendermint](https://tendermint.com/)
@@ -52,6 +52,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Mnemonic-Code-Converter (BIP32/BIP39/BIP44/BIP49)](https://www.bip32.net/)
 - [Chain Registry](https://github.com/cosmos/chain-registry)
 - [Cosmos Hub Forum](https://forum.cosmos.network/)
+- [Vue.js](https://vuejs.org/)
 
 ## Testnet Faucet
 
@@ -62,3 +63,17 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Tendermint: Consensus without Mining](https://tendermint.com/static/docs/tendermint.pdf)
 - [A Network of Distributed Ledgers (Cosmos Whitepaper)](https://v1.cosmos.network/resources/whitepaper)
 
+## Tips
+- If project's binary cannot be called after using ```ignite chain serve``` in the ignite project folder, it may be because the *GOPATH* is not set. Ensure that *PATH* contains *GOPATH* by appending the following to your profile, bashrc, zshrc or equivalent:
+    ```
+    export PATH=$PATH:$(go env GOPATH)/bin
+    ```
+- To reset ```ignite chain serve```, use
+    ```
+    ignite chain serve --reset-once
+    ```
+- To installing Node.js dependencies and ```npm install``` hangs at ```sill: idealTree build```, try deleting *node_modules* and *package-lock.json* and then run
+    ```
+    npm config set registry http://registry.npmjs.org/
+    npm install
+    ```
