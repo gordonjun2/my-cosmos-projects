@@ -17,6 +17,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Alternatives to Proof-of-Work with Tendermint's Jae Kwon | EDCON Toronto 2018](https://www.youtube.com/watch?v=T_FYBKJxlbk&t=155s)
 - [What Is Cosmos SDK and How to Use It to Customize Your Chain w/ Marko Baricevic of Interchain.](https://www.youtube.com/watch?v=1_ottIKPfI4&t=2s)
 - [Introduction to app.go, Julien Robert, Developer Relations Engineer for the Cosmos SDK.](https://www.youtube.com/watch?v=G6QUIUwYaSU)
+- [Cosmos Academy - Running a node Screencast](https://www.youtube.com/watch?v=wNUjkp2PFQI)
 
 ## Tips
 
