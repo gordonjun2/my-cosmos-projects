@@ -3,6 +3,8 @@ A repository to document my learning about Cosmos (aka Interchain).
 
 ## Learning Journey
 - [Interchain Developer Academy](https://ida.interchain.io/)
+    - This repository contains the raw course content from the website (converted from *.mhtml* to *.docx*), projects and quizzes.
+    - As Week 1 quiz report is not available yet, it is not certain that all the answers in the quiz are correct. Thus, not academic advice (NAA) XD!
 
 ## General Installation
 
