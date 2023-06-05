@@ -20,6 +20,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Introduction to app.go, Julien Robert, Developer Relations Engineer for the Cosmos SDK.](https://www.youtube.com/watch?v=G6QUIUwYaSU)
 - [Cosmos Academy - Running a node Screencast](https://www.youtube.com/watch?v=wNUjkp2PFQI)
 - [Cosmos Academy - Your own chain, with Ignite](https://www.youtube.com/watch?v=z1HDh2KdiGI)
+- [Build your Blockchain with Ignite CLI in 10 minutes with Denis Fadeev, Core Contributor at Ignite.](https://www.youtube.com/watch?v=aQuHeE7fWK0)
 
 ## Useful Information and Websites
 - [Tendermint](https://tendermint.com/)
@@ -52,7 +53,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Mnemonic-Code-Converter (BIP32/BIP39/BIP44/BIP49)](https://www.bip32.net/)
 - [Chain Registry](https://github.com/cosmos/chain-registry)
 - [Cosmos Hub Forum](https://forum.cosmos.network/)
-- [Vue.js](https://vuejs.org/)
+- [Cosmos SDK Releases](https://github.com/cosmos/cosmos-sdk/releases)
 
 ## Testnet Faucet
 
@@ -62,6 +63,11 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
 - [Tendermint: Consensus without Mining](https://tendermint.com/static/docs/tendermint.pdf)
 - [A Network of Distributed Ledgers (Cosmos Whitepaper)](https://v1.cosmos.network/resources/whitepaper)
+
+## Others
+- [Vue.js](https://vuejs.org/)
+- [Checkers Rules and Gameplay](https://www.ducksters.com/games/checkers_rules.php)
+- [How To Debug Go Code with Visual Studio Code](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
 
 ## Tips
 - If project's binary cannot be called after using ```ignite chain serve``` in the ignite project folder, it may be because the *GOPATH* is not set. Ensure that *PATH* contains *GOPATH* by appending the following to your profile, bashrc, zshrc or equivalent:
