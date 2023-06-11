@@ -1,0 +1,11 @@
+syntax = "proto3";
+package b9lab.otherworld.otherworld;
+
+option go_package = "github.com/b9lab/other-world/x/otherworld/types";
+
+message WorldParams {
+  string name = 1; 
+  uint64 gravity = 2; 
+  uint64 landSupply = 3; 
+  
+}
