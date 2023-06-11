@@ -22,6 +22,11 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Cosmos Academy - Running a node Screencast](https://www.youtube.com/watch?v=wNUjkp2PFQI)
 - [Cosmos Academy - Your own chain, with Ignite](https://www.youtube.com/watch?v=z1HDh2KdiGI)
 - [Build your Blockchain with Ignite CLI in 10 minutes with Denis Fadeev, Core Contributor at Ignite.](https://www.youtube.com/watch?v=aQuHeE7fWK0)
+- [HackAtom VI - workshop- How to build an IBC-Compatible App](https://www.youtube.com/watch?v=OSMH5uwTssk)
+- [How IBC Works, Part 1](https://www.youtube.com/watch?v=zUVPkEzGJzA)
+- [How IBC Works: Packet Verification & Light Client Security](https://ida.interchain.io/academy/3-ibc/1-what-is-ibc.html)
+- [Interchain Developer Academy | Introduction to IBC, Thomas Dekeyser | 3rd of October 2022](https://www.youtube.com/watch?v=HCO7qTOdNGI)
+- [IBC Connections - Overview of Connection Handshake](https://www.youtube.com/watch?v=E3ZvqdY2tL8)
 
 ## Useful Information and Websites
 - [Tendermint](https://tendermint.com/)
@@ -55,6 +60,14 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Chain Registry](https://github.com/cosmos/chain-registry)
 - [Cosmos Hub Forum](https://forum.cosmos.network/)
 - [Cosmos SDK Releases](https://github.com/cosmos/cosmos-sdk/releases)
+- [A Deep Look Into Cosmos — the Internet of Blockchains (***Good Visuals***)](https://juliankoh.medium.com/a-deep-look-into-cosmos-the-internet-of-blockchains-af3aa1a97a5b)
+- [Understanding the value proposition of Cosmos (***Good Visuals***)](https://blog.cosmos.network/understanding-the-value-proposition-of-cosmos-ecaef63350d)
+- [Cosmos — an early in-depth analysis at the ecosystem of connected blockchains — Part One (***Good Visuals***)](https://cryptoseq.medium.com/cosmos-an-early-in-depth-analysis-at-the-ecosystem-of-connected-blockchains-part-one-508cd679bac5)
+- [Cosmos — an early in-depth analysis at the ecosystem of connected blockchains — Part Two (***Good Visuals***)](https://cryptoseq.medium.com/cosmos-an-early-in-depth-analysis-at-the-ecosystem-of-connected-blockchains-part-two-2d5a9886166)
+- [How relayers work in the IBC (Inter-Blockchain Communication Protocol)](https://www.reddit.com/r/OsmosisLab/comments/t8ntrj/how_relayers_work_in_the_ibc_interblockchain/)
+- [ICS29: How do relayer fees work with IBC in the Cosmos ecosystem?](https://medium.com/imperator-guide/ics29-how-do-relayer-fees-work-with-ibc-in-the-cosmos-ecosystem-e89ae6cf4530)
+- [Tendermint Explained — Bringing BFT-based PoS to the Public Blockchain Domain](https://blog.cosmos.network/tendermint-explained-bringing-bft-based-pos-to-the-public-blockchain-domain-f22e274a0fdb)
+- [The Technicals of Interoperability—Introducing the Ethereum Peg Zone](https://blog.cosmos.network/the-internet-of-blockchains-how-cosmos-does-interoperability-starting-with-the-ethereum-peg-zone-8744d4d2bc3f)
 
 ## Testnet Faucet
 
