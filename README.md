@@ -27,6 +27,8 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [How IBC Works: Packet Verification & Light Client Security](https://ida.interchain.io/academy/3-ibc/1-what-is-ibc.html)
 - [Interchain Developer Academy | Introduction to IBC, Thomas Dekeyser | 3rd of October 2022](https://www.youtube.com/watch?v=HCO7qTOdNGI)
 - [IBC Connections - Overview of Connection Handshake](https://www.youtube.com/watch?v=E3ZvqdY2tL8)
+- [Interchain Developer Academy | Introduction to CosmJS, Noam Cohen | 29th of September 2022](https://www.youtube.com/watch?v=RlqjEVIv1Pg)
+- [HackAtom HCMC Workshop - CosmWasm/CosmJS: from zero to hero](https://www.youtube.com/watch?v=VTjiC4wcd7k)
 
 ## Useful Information and Websites
 - [Tendermint](https://tendermint.com/)
@@ -54,6 +56,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Ethermint](https://github.com/evmos/ethermint)
 - [MintScan - Interchain Explorer](https://hub.mintscan.io/chains/overview)
 - [MintScan's Validator List](https://www.mintscan.io/cosmos/validators)
+- [IOBScan - Blockchain Explorer](https://ibc.iobscan.io/)
 - [The latest gossip on BFT consensus - Practical Byzantine Fault Tolerance](https://arxiv.org/abs/1807.04938)
 - [Checkers Game in Go](https://github.com/batkinson/checkers-go)
 - [Mnemonic-Code-Converter (BIP32/BIP39/BIP44/BIP49)](https://www.bip32.net/)
@@ -64,10 +67,13 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Understanding the value proposition of Cosmos (***Good Visuals***)](https://blog.cosmos.network/understanding-the-value-proposition-of-cosmos-ecaef63350d)
 - [Cosmos — an early in-depth analysis at the ecosystem of connected blockchains — Part One (***Good Visuals***)](https://cryptoseq.medium.com/cosmos-an-early-in-depth-analysis-at-the-ecosystem-of-connected-blockchains-part-one-508cd679bac5)
 - [Cosmos — an early in-depth analysis at the ecosystem of connected blockchains — Part Two (***Good Visuals***)](https://cryptoseq.medium.com/cosmos-an-early-in-depth-analysis-at-the-ecosystem-of-connected-blockchains-part-two-2d5a9886166)
+- [Cosmos Hub ATOM Token and the commonly misunderstood staking tokens — Part Three (***Good Visuals***)](https://cryptoseq.medium.com/cosmos-atom-token-and-the-commonly-misunderstood-staking-tokens-part-three-958c295c5b78)
 - [How relayers work in the IBC (Inter-Blockchain Communication Protocol)](https://www.reddit.com/r/OsmosisLab/comments/t8ntrj/how_relayers_work_in_the_ibc_interblockchain/)
 - [ICS29: How do relayer fees work with IBC in the Cosmos ecosystem?](https://medium.com/imperator-guide/ics29-how-do-relayer-fees-work-with-ibc-in-the-cosmos-ecosystem-e89ae6cf4530)
 - [Tendermint Explained — Bringing BFT-based PoS to the Public Blockchain Domain](https://blog.cosmos.network/tendermint-explained-bringing-bft-based-pos-to-the-public-blockchain-domain-f22e274a0fdb)
 - [The Technicals of Interoperability—Introducing the Ethereum Peg Zone](https://blog.cosmos.network/the-internet-of-blockchains-how-cosmos-does-interoperability-starting-with-the-ethereum-peg-zone-8744d4d2bc3f)
+- [@cosmjs npm](https://www.npmjs.com/org/cosmjs)
+- [CosmJS GitHub Repository](https://github.com/cosmos/CosmJS)
 
 ## Testnet Faucet
 
