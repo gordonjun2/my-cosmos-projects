@@ -74,6 +74,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [The Technicals of Interoperability—Introducing the Ethereum Peg Zone](https://blog.cosmos.network/the-internet-of-blockchains-how-cosmos-does-interoperability-starting-with-the-ethereum-peg-zone-8744d4d2bc3f)
 - [@cosmjs npm](https://www.npmjs.com/org/cosmjs)
 - [CosmJS GitHub Repository](https://github.com/cosmos/CosmJS)
+- [Buf Schema Registry](https://buf.build/cosmos/cosmos-sdk)
 
 ## Testnet Faucet
 
