@@ -75,6 +75,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [@cosmjs npm](https://www.npmjs.com/org/cosmjs)
 - [CosmJS GitHub Repository](https://github.com/cosmos/CosmJS)
 - [Buf Schema Registry](https://buf.build/cosmos/cosmos-sdk)
+- [List of validators in Theta Testnet](https://explorer.theta-testnet.polypore.xyz/validators)
 
 ## Testnet Faucet
 

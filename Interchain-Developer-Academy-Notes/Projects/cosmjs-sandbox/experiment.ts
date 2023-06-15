@@ -56,10 +56,46 @@ const runAll = async (): Promise<void> => {
     console.log("Gas limit:", decodedTx.authInfo!.fee!.gasLimit.toString(10))
     console.log("Alice balance before:", await client.getAllBalances(alice))
     console.log("Faucet balance before:", await client.getAllBalances(faucet))
-    const result = await signingClient.sendTokens(alice, faucet, [{ denom: "uatom", amount: "100000" }], {
-        amount: [{ denom: "uatom", amount: "500" }],
-        gas: "200000",
-    })
+    
+    // const result = await signingClient.sendTokens(alice, faucet, [{ denom: "uatom", amount: "100000" }], {
+    //     amount: [{ denom: "uatom", amount: "500" }],
+    //     gas: "200000",
+    // })
+
+    const validator: string = "cosmosvaloper1s5jrzpfjc3xe2f2rd0dmkf0clatq785yv9txul" // blockscape
+
+    // method to atomically send tokens to multiple recipients
+    const result = await signingClient.signAndBroadcast(
+        // the signerAddress
+        alice,
+        // the message(s)
+        [
+            {
+                typeUrl: "/cosmos.bank.v1beta1.MsgSend",
+                value: {
+                    fromAddress: alice,
+                    toAddress: faucet,
+                    amount: [
+                        { denom: "uatom", amount: "100000" },
+                    ],
+                },
+              },
+            {
+                typeUrl: "/cosmos.staking.v1beta1.MsgDelegate",
+                value: {
+                    delegatorAddress: alice,
+                    validatorAddress: validator,
+                    amount: { denom: "uatom", amount: "1000", },
+                },
+            },
+        ],
+        // the fee
+        {
+            amount: [{ denom: "uatom", amount: "500" }],
+            gas: "200000",
+        },
+    )
+    
     console.log("Transfer result:", result)
     console.log("Alice balance after:", await client.getAllBalances(alice))
     console.log("Faucet balance after:", await client.getAllBalances(faucet))
