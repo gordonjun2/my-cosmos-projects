@@ -1,2 +1,4 @@
 .DS_Store
 cosmos-sdk/
+node_modules/
+*.key
