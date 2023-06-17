@@ -91,6 +91,60 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Checkers Rules and Gameplay](https://www.ducksters.com/games/checkers_rules.php)
 - [How To Debug Go Code with Visual Studio Code](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
 
+## Common Ignite CLI Commands
+- To see available Ignite commands
+    ```
+    ignite
+    ```
+- To verify version of Ignite CLI
+    ```
+    ignite version
+    ```
+- To scaffold a chain that is placed under a GitHub path
+    ```
+    ignite scaffold chain github.com/<GitHub path>/<chain name>
+    ```
+    e.g.
+    ```
+    ignite scaffold chain github.com/alice/checkers
+    ```
+- Start a local testnet with a running node (use previous saved state)
+    ```
+    ignite chain serve
+    ```
+- Start a local testnet with a running node (clean state)
+    ```
+    ignite chain serve --reset-once
+    ```
+- To see available commands of a scaffolded chain
+    ```
+    <chain name>d --help
+    ```
+    e.g.
+    ```
+    checkersd --help
+    ```
+- To use scaffolded chain's command
+    ```
+    <chain name>d <chain command>
+    ```
+    e.g.
+    ```
+    checkersd status
+    ```
+- To compile .proto files
+    ```
+    ignite generate proto-go
+    ```
+- To run stateless test (not related to blockchain's state)
+    ```
+    go test github.com/<GitHub path>/<chain name>/x/checkers/types
+    ```
+- To run stateful test (related to blockchain's state)
+    ```
+    go test github.com/<GitHub path>/<chain name>/x/checkers/keeper
+    ```
+
 ## Tips
 - If project's binary cannot be called after using ```ignite chain serve``` in the ignite project folder, it may be because the *GOPATH* is not set. Ensure that *PATH* contains *GOPATH* by appending the following to your profile, bashrc, zshrc or equivalent:
     ```
