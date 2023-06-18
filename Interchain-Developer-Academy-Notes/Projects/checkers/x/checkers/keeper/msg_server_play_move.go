@@ -13,7 +13,6 @@ import (
 func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*types.MsgPlayMoveResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Handling the message
 	storedGame, found := k.Keeper.GetStoredGame(ctx, msg.GameIndex)
 	if !found {
 		return nil, sdkerrors.Wrapf(types.ErrGameNotFound, "%s", msg.GameIndex)
@@ -40,6 +39,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	if err != nil {
 		panic(err.Error())
 	}
+
 	if !game.TurnIs(player) {
 		return nil, sdkerrors.Wrapf(types.ErrNotPlayerTurn, "%s", player)
 	}
@@ -61,16 +61,25 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	storedGame.Winner = rules.PieceStrings[game.Winner()]
 
 	lastBoard := game.String()
+
+	systemInfo, found := k.Keeper.GetSystemInfo(ctx)
+	if !found {
+		panic("SystemInfo not found")
+	}
+
 	if storedGame.Winner == rules.PieceStrings[rules.NO_PLAYER] {
 		storedGame.Board = lastBoard
+		k.Keeper.SendToFifoTail(ctx, &storedGame, &systemInfo)
 	} else {
 		storedGame.Board = ""
+		k.Keeper.RemoveFromFifo(ctx, &storedGame, &systemInfo)
 	}
 
 	storedGame.Deadline = types.FormatDeadline(types.GetNextDeadline(ctx))
 	storedGame.MoveCount++
 	storedGame.Turn = rules.PieceStrings[game.Turn]
 	k.Keeper.SetStoredGame(ctx, storedGame)
+	k.Keeper.SetSystemInfo(ctx, systemInfo)
 
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(types.MovePlayedEventType,

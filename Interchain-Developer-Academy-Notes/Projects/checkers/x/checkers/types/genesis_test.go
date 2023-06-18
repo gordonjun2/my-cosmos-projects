@@ -23,7 +23,7 @@ func TestGenesisState_Validate(t *testing.T) {
 			genState: &types.GenesisState{
 
 				SystemInfo: types.SystemInfo{
-					NextId: 38,
+					NextId: 39,
 				},
 				StoredGameList: []types.StoredGame{
 					{
@@ -68,7 +68,11 @@ func TestDefaultGenesisState_ExpectedInitialNextId(t *testing.T) {
 	require.EqualValues(t,
 		&types.GenesisState{
 			StoredGameList: []types.StoredGame{},
-			SystemInfo:     types.SystemInfo{uint64(1)},
+			SystemInfo: types.SystemInfo{
+				NextId:        uint64(1),
+				FifoHeadIndex: "-1",
+				FifoTailIndex: "-1",
+			},
 		},
 		types.DefaultGenesis())
 }

@@ -144,6 +144,14 @@ A repository to document my learning about Cosmos (aka Interchain).
     ```
     go test github.com/<GitHub path>/<chain name>/x/checkers/keeper
     ```
+- To store variables as environment variables
+    ```
+    export <environment variable>=$<value or command that generate the value>
+    ```
+    e.g.
+    ```
+    export alice=$(checkersd keys show alice -a)
+    ```
 
 ## Tips
 - If project's binary cannot be called after using ```ignite chain serve``` in the ignite project folder, it may be because the *GOPATH* is not set. Ensure that *PATH* contains *GOPATH* by appending the following to your profile, bashrc, zshrc or equivalent:
