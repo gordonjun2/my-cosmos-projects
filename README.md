@@ -138,11 +138,11 @@ A repository to document my learning about Cosmos (aka Interchain).
     ```
 - To run stateless test (not related to blockchain's state)
     ```
-    go test github.com/<GitHub path>/<chain name>/x/checkers/types
+    go test github.com/<GitHub path>/<chain name>/x/<chain name>/types
     ```
 - To run stateful test (related to blockchain's state)
     ```
-    go test github.com/<GitHub path>/<chain name>/x/checkers/keeper
+    go test github.com/<GitHub path>/<chain name>/x/<chain name>/keeper
     ```
 - To store variables as environment variables
     ```
@@ -151,6 +151,12 @@ A repository to document my learning about Cosmos (aka Interchain).
     e.g.
     ```
     export alice=$(checkersd keys show alice -a)
+    ```
+- To create mocks using the *mockgen*
+    ```
+    mockgen -source=x/<chain name>/types/expected_keepers.go \
+        -package testutil \
+        -destination=x/<chain name>/testutil/expected_keepers_mocks.go
     ```
 
 ## Tips
