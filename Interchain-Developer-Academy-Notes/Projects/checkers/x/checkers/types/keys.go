@@ -34,6 +34,7 @@ const (
 	GameCreatedEventBlack     = "black"            // Is it relevant to me?
 	GameCreatedEventRed       = "red"              // Is it relevant to me?
 	GameCreatedEventWager     = "wager"
+	GameCreatedEventDenom     = "denom"
 )
 
 const (
@@ -60,4 +61,9 @@ const (
 	GameForfeitedEventGameIndex = "game-index"
 	GameForfeitedEventWinner    = "winner"
 	GameForfeitedEventBoard     = "board"
+)
+
+const (
+	CreateGameGas = 15000
+	PlayMoveGas   = 1000
 )

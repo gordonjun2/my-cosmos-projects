@@ -17,6 +17,7 @@ export interface MsgCreateGame {
   black: string;
   red: string;
   wager: number;
+  denom: string;
 }
 
 export interface MsgCreateGameResponse {
@@ -165,7 +166,13 @@ export const MsgCreatePostResponse = {
   },
 };
 
-const baseMsgCreateGame: object = { creator: "", black: "", red: "", wager: 0 };
+const baseMsgCreateGame: object = {
+  creator: "",
+  black: "",
+  red: "",
+  wager: 0,
+  denom: "",
+};
 
 export const MsgCreateGame = {
   encode(message: MsgCreateGame, writer: Writer = Writer.create()): Writer {
@@ -180,6 +187,9 @@ export const MsgCreateGame = {
     }
     if (message.wager !== 0) {
       writer.uint32(32).uint64(message.wager);
+    }
+    if (message.denom !== "") {
+      writer.uint32(42).string(message.denom);
     }
     return writer;
   },
@@ -202,6 +212,9 @@ export const MsgCreateGame = {
           break;
         case 4:
           message.wager = longToNumber(reader.uint64() as Long);
+          break;
+        case 5:
+          message.denom = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -233,6 +246,11 @@ export const MsgCreateGame = {
     } else {
       message.wager = 0;
     }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = String(object.denom);
+    } else {
+      message.denom = "";
+    }
     return message;
   },
 
@@ -242,6 +260,7 @@ export const MsgCreateGame = {
     message.black !== undefined && (obj.black = message.black);
     message.red !== undefined && (obj.red = message.red);
     message.wager !== undefined && (obj.wager = message.wager);
+    message.denom !== undefined && (obj.denom = message.denom);
     return obj;
   },
 
@@ -266,6 +285,11 @@ export const MsgCreateGame = {
       message.wager = object.wager;
     } else {
       message.wager = 0;
+    }
+    if (object.denom !== undefined && object.denom !== null) {
+      message.denom = object.denom;
+    } else {
+      message.denom = "";
     }
     return message;
   },

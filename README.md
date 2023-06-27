@@ -136,13 +136,17 @@ A repository to document my learning about Cosmos (aka Interchain).
     ```
     ignite generate proto-go
     ```
-- To run stateless test (not related to blockchain's state)
+- To run stateless unit test (not related to blockchain's state)
     ```
     go test github.com/<GitHub path>/<chain name>/x/<chain name>/types
     ```
-- To run stateful test (related to blockchain's state)
+- To run stateful unit test (related to blockchain's state)
     ```
     go test github.com/<GitHub path>/<chain name>/x/<chain name>/keeper
+    ```
+- To run integration test
+    ```
+    go test github.com/<GitHub path>/<chain name>/tests/integration/<chain name>/keeper
     ```
 - To store variables as environment variables
     ```

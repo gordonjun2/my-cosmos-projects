@@ -12,7 +12,6 @@ import (
 func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (*types.MsgCreateGameResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	// TODO: Handling the message
 	systemInfo, found := k.Keeper.GetSystemInfo(ctx)
 	if !found {
 		panic("SystemInfo not found")
@@ -32,6 +31,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 		BeforeIndex: types.NoFifoIndex,
 		AfterIndex:  types.NoFifoIndex,
 		Wager:       msg.Wager,
+		Denom:       msg.Denom,
 	}
 
 	err := storedGame.Validate()
@@ -44,6 +44,8 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 	systemInfo.NextId++
 	k.Keeper.SetSystemInfo(ctx, systemInfo)
 
+	ctx.GasMeter().ConsumeGas(types.CreateGameGas, "Create game")
+
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(types.GameCreatedEventType,
 			sdk.NewAttribute(types.GameCreatedEventCreator, msg.Creator),
@@ -51,6 +53,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 			sdk.NewAttribute(types.GameCreatedEventBlack, msg.Black),
 			sdk.NewAttribute(types.GameCreatedEventRed, msg.Red),
 			sdk.NewAttribute(types.GameCreatedEventWager, strconv.FormatUint(msg.Wager, 10)),
+			sdk.NewAttribute(types.GameCreatedEventDenom, msg.Denom),
 		),
 	)
 
