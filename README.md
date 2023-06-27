@@ -76,6 +76,9 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [CosmJS GitHub Repository](https://github.com/cosmos/CosmJS)
 - [Buf Schema Registry](https://buf.build/cosmos/cosmos-sdk)
 - [List of validators in Theta Testnet](https://explorer.theta-testnet.polypore.xyz/validators)
+- [IBC Beyond Light Clients: Solo Machine](https://medium.com/the-interchain-foundation/ibc-beyond-light-clients-solo-machine-5af93618ef63)
+- [ADR 001: Coin Source Tracing](https://ibc.cosmos.network/main/architecture/adr-001-coin-source-tracing.html)
+- [Chain Name System](https://github.com/tendermint/cns)
 
 ## Testnet Faucet
 

@@ -1,4 +1,5 @@
 .DS_Store
 cosmos-sdk/
+gaia/
 node_modules/
 *.key
