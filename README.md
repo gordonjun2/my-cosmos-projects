@@ -58,6 +58,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [MintScan's Validator List](https://www.mintscan.io/cosmos/validators)
 - [IOBScan - Blockchain Explorer](https://ibc.iobscan.io/)
 - [The latest gossip on BFT consensus - Practical Byzantine Fault Tolerance](https://arxiv.org/abs/1807.04938)
+- [Checkers tutorial project - A companion project of the Cosmos SDK tutorials](https://github.com/cosmos/b9-checkers-academy-draft/tree/main)
 - [Checkers Game in Go](https://github.com/batkinson/checkers-go)
 - [Mnemonic-Code-Converter (BIP32/BIP39/BIP44/BIP49)](https://www.bip32.net/)
 - [Chain Registry](https://github.com/cosmos/chain-registry)
@@ -79,6 +80,9 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [IBC Beyond Light Clients: Solo Machine](https://medium.com/the-interchain-foundation/ibc-beyond-light-clients-solo-machine-5af93618ef63)
 - [ADR 001: Coin Source Tracing](https://ibc.cosmos.network/main/architecture/adr-001-coin-source-tracing.html)
 - [Chain Name System](https://github.com/tendermint/cns)
+- [Go relayer](https://github.com/cosmos/relayer)
+= [Checkers tutorial project - Parts that uses relayer](https://github.com/b9lab/cosmos-ibc-docker)
+
 
 ## Testnet Faucet
 
@@ -94,7 +98,7 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [Checkers Rules and Gameplay](https://www.ducksters.com/games/checkers_rules.php)
 - [How To Debug Go Code with Visual Studio Code](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
 
-## Common Ignite CLI Commands
+## Common CLI Commands
 - To see available Ignite commands
     ```
     ignite
@@ -165,6 +169,8 @@ A repository to document my learning about Cosmos (aka Interchain).
         -package testutil \
         -destination=x/<chain name>/testutil/expected_keepers_mocks.go
     ```
+- To use Go relayer, see [Go Relayer](https://ida.interchain.io/hands-on-exercise/5-ibc-adv/1-go-relayer.html).
+- To use Hermes relayer, see [Hermes Relayer](https://ida.interchain.io/hands-on-exercise/5-ibc-adv/2-hermes-relayer.html).
 
 ## Tips
 - If project's binary cannot be called after using ```ignite chain serve``` in the ignite project folder, it may be because the *GOPATH* is not set. Ensure that *PATH* contains *GOPATH* by appending the following to your profile, bashrc, zshrc or equivalent:
