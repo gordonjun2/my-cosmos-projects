@@ -80,9 +80,10 @@ A repository to document my learning about Cosmos (aka Interchain).
 - [IBC Beyond Light Clients: Solo Machine](https://medium.com/the-interchain-foundation/ibc-beyond-light-clients-solo-machine-5af93618ef63)
 - [ADR 001: Coin Source Tracing](https://ibc.cosmos.network/main/architecture/adr-001-coin-source-tracing.html)
 - [Chain Name System](https://github.com/tendermint/cns)
-- [Go relayer](https://github.com/cosmos/relayer)
-= [Checkers tutorial project - Parts that uses relayer](https://github.com/b9lab/cosmos-ibc-docker)
-
+- [Go Relayer](https://github.com/cosmos/relayer)
+- [Checkers tutorial project - Parts that uses relayer](https://github.com/b9lab/cosmos-ibc-docker)
+- [Hermes Relayer](https://hermes.informal.systems/index.html)
+- [Hermes - Connecting IBC Enabled Blockchains Demo](https://github.com/informalsystems/hermes-hackatom-demo)
 
 ## Testnet Faucet
 
