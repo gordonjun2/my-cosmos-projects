@@ -187,3 +187,11 @@ A repository to document my learning about Cosmos (aka Interchain).
     npm config set registry http://registry.npmjs.org/
     npm install
     ```
+- To add a Git repository inside another Git repository as a submodule, use
+    ```
+    git submodule add <git clone link> client
+    ```
+    e.g.
+    ```
+    git submodule add git@github.com:cosmos/academy-checkers-ui.git client
+    ```

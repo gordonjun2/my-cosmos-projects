@@ -1,0 +1,3 @@
+[submodule "Interchain-Developer-Academy-Notes/Projects/checkers/client"]
+	path = Interchain-Developer-Academy-Notes/Projects/checkers/client
+	url = git@github.com:cosmos/academy-checkers-ui.git
