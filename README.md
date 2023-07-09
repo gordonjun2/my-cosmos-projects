@@ -195,3 +195,4 @@ A repository to document my learning about Cosmos (aka Interchain).
     ```
     git submodule add git@github.com:cosmos/academy-checkers-ui.git client
     ```
+- [How to update webpack config for a react project created using create-react-app?](https://stackoverflow.com/questions/63280109/how-to-update-webpack-config-for-a-react-project-created-using-create-react-app)
