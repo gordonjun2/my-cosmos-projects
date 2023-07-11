@@ -1,9 +1,11 @@
 import { txClient, queryClient, MissingWalletError , registry} from './module'
 
+import { LeaderboardPacketData } from "./module/types/leaderboard/packet"
+import { NoData } from "./module/types/leaderboard/packet"
 import { Params } from "./module/types/leaderboard/params"
 
 
-export { Params };
+export { LeaderboardPacketData, NoData, Params };
 
 async function initTxClient(vuexGetters) {
 	return await txClient(vuexGetters['common/wallet/signer'], {
@@ -44,6 +46,8 @@ const getDefaultState = () => {
 				Params: {},
 				
 				_Structure: {
+						LeaderboardPacketData: getStructure(LeaderboardPacketData.fromPartial({})),
+						NoData: getStructure(NoData.fromPartial({})),
 						Params: getStructure(Params.fromPartial({})),
 						
 		},

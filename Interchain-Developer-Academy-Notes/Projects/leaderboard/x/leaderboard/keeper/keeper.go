@@ -9,10 +9,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/ignite-hq/cli/ignite/pkg/cosmosibckeeper"
 )
 
 type (
 	Keeper struct {
+		*cosmosibckeeper.Keeper
 		cdc        codec.BinaryCodec
 		storeKey   sdk.StoreKey
 		memKey     sdk.StoreKey
@@ -25,6 +27,9 @@ func NewKeeper(
 	storeKey,
 	memKey sdk.StoreKey,
 	ps paramtypes.Subspace,
+	channelKeeper cosmosibckeeper.ChannelKeeper,
+	portKeeper cosmosibckeeper.PortKeeper,
+	scopedKeeper cosmosibckeeper.ScopedKeeper,
 
 ) *Keeper {
 	// set KeyTable if it has not already been set
@@ -33,7 +38,13 @@ func NewKeeper(
 	}
 
 	return &Keeper{
-
+		Keeper: cosmosibckeeper.NewKeeper(
+			types.PortKey,
+			storeKey,
+			channelKeeper,
+			portKeeper,
+			scopedKeeper,
+		),
 		cdc:        cdc,
 		storeKey:   storeKey,
 		memKey:     memKey,

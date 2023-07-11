@@ -99,7 +99,6 @@ import (
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
 	"github.com/cosmonaut/leaderboard/docs"
-
 	leaderboardmodule "github.com/cosmonaut/leaderboard/x/leaderboard"
 	leaderboardmodulekeeper "github.com/cosmonaut/leaderboard/x/leaderboard/keeper"
 	leaderboardmoduletypes "github.com/cosmonaut/leaderboard/x/leaderboard/types"
@@ -230,7 +229,8 @@ type App struct {
 	ScopedTransferKeeper   capabilitykeeper.ScopedKeeper
 	ScopedMonitoringKeeper capabilitykeeper.ScopedKeeper
 
-	LeaderboardKeeper leaderboardmodulekeeper.Keeper
+	ScopedLeaderboardKeeper capabilitykeeper.ScopedKeeper
+	LeaderboardKeeper       leaderboardmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// mm is the module manager
@@ -389,11 +389,16 @@ func New(
 	)
 	monitoringModule := monitoringp.NewAppModule(appCodec, app.MonitoringKeeper)
 
+	scopedLeaderboardKeeper := app.CapabilityKeeper.ScopeToModule(leaderboardmoduletypes.ModuleName)
+	app.ScopedLeaderboardKeeper = scopedLeaderboardKeeper
 	app.LeaderboardKeeper = *leaderboardmodulekeeper.NewKeeper(
 		appCodec,
 		keys[leaderboardmoduletypes.StoreKey],
 		keys[leaderboardmoduletypes.MemStoreKey],
 		app.GetSubspace(leaderboardmoduletypes.ModuleName),
+		app.IBCKeeper.ChannelKeeper,
+		&app.IBCKeeper.PortKeeper,
+		scopedLeaderboardKeeper,
 	)
 	leaderboardModule := leaderboardmodule.NewAppModule(appCodec, app.LeaderboardKeeper, app.AccountKeeper, app.BankKeeper)
 
@@ -403,6 +408,7 @@ func New(
 	ibcRouter := ibcporttypes.NewRouter()
 	ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferIBCModule)
 	ibcRouter.AddRoute(monitoringptypes.ModuleName, monitoringModule)
+	ibcRouter.AddRoute(leaderboardmoduletypes.ModuleName, leaderboardModule)
 	// this line is used by starport scaffolding # ibc/app/router
 	app.IBCKeeper.SetRouter(ibcRouter)
 
