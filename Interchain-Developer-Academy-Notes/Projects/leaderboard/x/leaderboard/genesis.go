@@ -1,14 +1,21 @@
 package leaderboard
 
 import (
-	"github.com/cosmonaut/leaderboard/x/leaderboard/keeper"
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	"leaderboard/x/leaderboard/keeper"
+	"leaderboard/x/leaderboard/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis
 // state.
 func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) {
+	// Set all the playerInfo
+	for _, elem := range genState.PlayerInfoList {
+		k.SetPlayerInfo(ctx, elem)
+	}
+	// Set if defined
+	k.SetBoard(ctx, genState.Board)
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetPort(ctx, genState.PortId)
 	// Only try to bind to port if it is not already bound, since we may already own
@@ -30,6 +37,12 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis.Params = k.GetParams(ctx)
 
 	genesis.PortId = k.GetPort(ctx)
+	genesis.PlayerInfoList = k.GetAllPlayerInfo(ctx)
+	// Get all board
+	board, found := k.GetBoard(ctx)
+	if found {
+		genesis.Board = board
+	}
 	// this line is used by starport scaffolding # genesis/module/export
 
 	return genesis

@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/cosmonaut/leaderboard/testutil/keeper"
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
 	"github.com/stretchr/testify/require"
+	testkeeper "leaderboard/testutil/keeper"
+	"leaderboard/x/leaderboard/types"
 )
 
 func TestGetParams(t *testing.T) {

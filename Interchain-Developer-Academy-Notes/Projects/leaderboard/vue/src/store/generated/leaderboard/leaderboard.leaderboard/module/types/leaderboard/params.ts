@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Writer, Reader } from "protobufjs/minimal";
 
-export const protobufPackage = "cosmonaut.leaderboard.leaderboard";
+export const protobufPackage = "leaderboard.leaderboard";
 
 /** Params defines the parameters for the module. */
 export interface Params {}

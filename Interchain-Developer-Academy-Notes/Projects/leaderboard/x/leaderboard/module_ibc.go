@@ -3,7 +3,6 @@ package leaderboard
 import (
 	"fmt"
 
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
@@ -11,6 +10,7 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v3/modules/core/05-port/types"
 	host "github.com/cosmos/ibc-go/v3/modules/core/24-host"
 	ibcexported "github.com/cosmos/ibc-go/v3/modules/core/exported"
+	"leaderboard/x/leaderboard/types"
 )
 
 // OnChanOpenInit implements the IBCModule interface
@@ -138,8 +138,8 @@ func (am AppModule) OnRecvPacket(
 
 	// Dispatch packet
 	switch packet := modulePacketData.Packet.(type) {
-	case *types.LeaderboardPacketData_IbcTopRankPacket:
-		packetAck, err := am.keeper.OnRecvIbcTopRankPacket(ctx, modulePacket, *packet.IbcTopRankPacket)
+	case *types.LeaderboardPacketData_CandidatePacket:
+		packetAck, err := am.keeper.OnRecvCandidatePacket(ctx, modulePacket, *packet.CandidatePacket)
 		if err != nil {
 			ack = channeltypes.NewErrorAcknowledgement(err.Error())
 		} else {
@@ -152,7 +152,7 @@ func (am AppModule) OnRecvPacket(
 		}
 		ctx.EventManager().EmitEvent(
 			sdk.NewEvent(
-				types.EventTypeIbcTopRankPacket,
+				types.EventTypeCandidatePacket,
 				sdk.NewAttribute(sdk.AttributeKeyModule, types.ModuleName),
 				sdk.NewAttribute(types.AttributeKeyAckSuccess, fmt.Sprintf("%t", err != nil)),
 			),
@@ -190,12 +190,12 @@ func (am AppModule) OnAcknowledgementPacket(
 
 	// Dispatch packet
 	switch packet := modulePacketData.Packet.(type) {
-	case *types.LeaderboardPacketData_IbcTopRankPacket:
-		err := am.keeper.OnAcknowledgementIbcTopRankPacket(ctx, modulePacket, *packet.IbcTopRankPacket, ack)
+	case *types.LeaderboardPacketData_CandidatePacket:
+		err := am.keeper.OnAcknowledgementCandidatePacket(ctx, modulePacket, *packet.CandidatePacket, ack)
 		if err != nil {
 			return err
 		}
-		eventType = types.EventTypeIbcTopRankPacket
+		eventType = types.EventTypeCandidatePacket
 		// this line is used by starport scaffolding # ibc/packet/module/ack
 	default:
 		errMsg := fmt.Sprintf("unrecognized %s packet type: %T", types.ModuleName, packet)
@@ -243,8 +243,8 @@ func (am AppModule) OnTimeoutPacket(
 
 	// Dispatch packet
 	switch packet := modulePacketData.Packet.(type) {
-	case *types.LeaderboardPacketData_IbcTopRankPacket:
-		err := am.keeper.OnTimeoutIbcTopRankPacket(ctx, modulePacket, *packet.IbcTopRankPacket)
+	case *types.LeaderboardPacketData_CandidatePacket:
+		err := am.keeper.OnTimeoutCandidatePacket(ctx, modulePacket, *packet.CandidatePacket)
 		if err != nil {
 			return err
 		}

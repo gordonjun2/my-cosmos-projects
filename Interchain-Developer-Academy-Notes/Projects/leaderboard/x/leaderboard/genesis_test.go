@@ -3,10 +3,11 @@ package leaderboard_test
 import (
 	"testing"
 
-	keepertest "github.com/cosmonaut/leaderboard/testutil/keeper"
-	"github.com/cosmonaut/leaderboard/testutil/nullify"
-	"github.com/cosmonaut/leaderboard/x/leaderboard"
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	keepertest "leaderboard/testutil/keeper"
+	"leaderboard/testutil/nullify"
+	"leaderboard/x/leaderboard"
+	"leaderboard/x/leaderboard/types"
+
 	"github.com/stretchr/testify/require"
 )
 
@@ -14,6 +15,17 @@ func TestGenesis(t *testing.T) {
 	genesisState := types.GenesisState{
 		Params: types.DefaultParams(),
 		PortId: types.PortID,
+		PlayerInfoList: []types.PlayerInfo{
+			{
+				Index: "0",
+			},
+			{
+				Index: "1",
+			},
+		},
+		Board: types.Board{
+			PlayerInfo: []types.PlayerInfo{},
+		},
 		// this line is used by starport scaffolding # genesis/test/state
 	}
 
@@ -27,5 +39,7 @@ func TestGenesis(t *testing.T) {
 
 	require.Equal(t, genesisState.PortId, got.PortId)
 
+	require.ElementsMatch(t, genesisState.PlayerInfoList, got.PlayerInfoList)
+	require.Equal(t, genesisState.Board, got.Board)
 	// this line is used by starport scaffolding # genesis/test/assert
 }

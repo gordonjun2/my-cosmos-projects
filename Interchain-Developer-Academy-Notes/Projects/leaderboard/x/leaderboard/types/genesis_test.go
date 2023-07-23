@@ -3,7 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	"leaderboard/x/leaderboard/types"
+
 	"github.com/stretchr/testify/require"
 )
 
@@ -22,9 +23,34 @@ func TestGenesisState_Validate(t *testing.T) {
 			desc: "valid genesis state",
 			genState: &types.GenesisState{
 				PortId: types.PortID,
+				PlayerInfoList: []types.PlayerInfo{
+					{
+						Index: "0",
+					},
+					{
+						Index: "1",
+					},
+				},
+				Board: types.Board{
+					PlayerInfo: []types.PlayerInfo{},
+				},
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated playerInfo",
+			genState: &types.GenesisState{
+				PlayerInfoList: []types.PlayerInfo{
+					{
+						Index: "0",
+					},
+					{
+						Index: "0",
+					},
+				},
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	} {

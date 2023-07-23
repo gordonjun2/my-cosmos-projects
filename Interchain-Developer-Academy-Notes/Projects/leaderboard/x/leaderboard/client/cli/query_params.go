@@ -3,10 +3,10 @@ package cli
 import (
 	"context"
 
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
+	"leaderboard/x/leaderboard/types"
 )
 
 func CmdQueryParams() *cobra.Command {

@@ -1,9 +1,9 @@
 syntax = "proto3";
-package cosmonaut.leaderboard.leaderboard;
+package leaderboard.leaderboard;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/cosmonaut/leaderboard/x/leaderboard/types";
+option go_package = "leaderboard/x/leaderboard/types";
 
 // Params defines the parameters for the module.
 message Params {

@@ -1,8 +1,8 @@
 package keeper
 
 import (
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"leaderboard/x/leaderboard/types"
 )
 
 // GetParams get all parameters as types.Params

@@ -3,7 +3,8 @@ package keeper
 import (
 	"errors"
 
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	"leaderboard/x/leaderboard/types"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
@@ -11,10 +12,10 @@ import (
 	host "github.com/cosmos/ibc-go/v3/modules/core/24-host"
 )
 
-// TransmitIbcTopRankPacket transmits the packet over IBC with the specified source port and source channel
-func (k Keeper) TransmitIbcTopRankPacket(
+// TransmitCandidatePacket transmits the packet over IBC with the specified source port and source channel
+func (k Keeper) TransmitCandidatePacket(
 	ctx sdk.Context,
-	packetData types.IbcTopRankPacketData,
+	packetData types.CandidatePacketData,
 	sourcePort,
 	sourceChannel string,
 	timeoutHeight clienttypes.Height,
@@ -66,21 +67,41 @@ func (k Keeper) TransmitIbcTopRankPacket(
 	return nil
 }
 
-// OnRecvIbcTopRankPacket processes packet reception
-func (k Keeper) OnRecvIbcTopRankPacket(ctx sdk.Context, packet channeltypes.Packet, data types.IbcTopRankPacketData) (packetAck types.IbcTopRankPacketAck, err error) {
+// OnRecvCandidatePacket processes packet reception
+func (k Keeper) OnRecvCandidatePacket(ctx sdk.Context, packet channeltypes.Packet, data types.CandidatePacketData) (packetAck types.CandidatePacketAck, err error) {
 	// validate packet data upon receiving
 	if err := data.ValidateBasic(); err != nil {
 		return packetAck, err
 	}
 
-	// TODO: packet reception logic
+	// Override the entry
+	k.SetPlayerInfo(ctx, *data.PlayerInfo)
+
+	// Update the board
+	board, found := k.GetBoard(ctx)
+	if !found {
+		panic("Leaderboard not found")
+	}
+	listed := board.PlayerInfo
+	replaced := false
+	for i := range listed {
+		if listed[i].Index == data.PlayerInfo.Index {
+			listed[i] = *data.PlayerInfo
+			replaced = true
+			break
+		}
+	}
+	if !replaced {
+		listed = append(listed, *data.PlayerInfo)
+	}
+	k.UpdateBoard(ctx, listed)
 
 	return packetAck, nil
 }
 
-// OnAcknowledgementIbcTopRankPacket responds to the the success or failure of a packet
+// OnAcknowledgementCandidatePacket responds to the the success or failure of a packet
 // acknowledgement written on the receiving chain.
-func (k Keeper) OnAcknowledgementIbcTopRankPacket(ctx sdk.Context, packet channeltypes.Packet, data types.IbcTopRankPacketData, ack channeltypes.Acknowledgement) error {
+func (k Keeper) OnAcknowledgementCandidatePacket(ctx sdk.Context, packet channeltypes.Packet, data types.CandidatePacketData, ack channeltypes.Acknowledgement) error {
 	switch dispatchedAck := ack.Response.(type) {
 	case *channeltypes.Acknowledgement_Error:
 
@@ -90,7 +111,7 @@ func (k Keeper) OnAcknowledgementIbcTopRankPacket(ctx sdk.Context, packet channe
 		return nil
 	case *channeltypes.Acknowledgement_Result:
 		// Decode the packet acknowledgment
-		var packetAck types.IbcTopRankPacketAck
+		var packetAck types.CandidatePacketAck
 
 		if err := types.ModuleCdc.UnmarshalJSON(dispatchedAck.Result, &packetAck); err != nil {
 			// The counter-party module doesn't implement the correct acknowledgment format
@@ -106,8 +127,8 @@ func (k Keeper) OnAcknowledgementIbcTopRankPacket(ctx sdk.Context, packet channe
 	}
 }
 
-// OnTimeoutIbcTopRankPacket responds to the case where a packet has not been transmitted because of a timeout
-func (k Keeper) OnTimeoutIbcTopRankPacket(ctx sdk.Context, packet channeltypes.Packet, data types.IbcTopRankPacketData) error {
+// OnTimeoutCandidatePacket responds to the case where a packet has not been transmitted because of a timeout
+func (k Keeper) OnTimeoutCandidatePacket(ctx sdk.Context, packet channeltypes.Packet, data types.CandidatePacketData) error {
 
 	// TODO: packet timeout logic
 

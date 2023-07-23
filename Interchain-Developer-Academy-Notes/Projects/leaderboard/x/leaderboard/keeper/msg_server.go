@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	"leaderboard/x/leaderboard/types"
 )
 
 type msgServer struct {

@@ -98,10 +98,10 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/cosmonaut/leaderboard/docs"
-	leaderboardmodule "github.com/cosmonaut/leaderboard/x/leaderboard"
-	leaderboardmodulekeeper "github.com/cosmonaut/leaderboard/x/leaderboard/keeper"
-	leaderboardmoduletypes "github.com/cosmonaut/leaderboard/x/leaderboard/types"
+	"leaderboard/docs"
+	leaderboardmodule "leaderboard/x/leaderboard"
+	leaderboardmodulekeeper "leaderboard/x/leaderboard/keeper"
+	leaderboardmoduletypes "leaderboard/x/leaderboard/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 
