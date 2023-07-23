@@ -29493,6 +29493,8 @@ paths:
       tags:
         - Query
 definitions:
+  cosmonaut.leaderboard.leaderboard.MsgSendIbcTopRankResponse:
+    type: object
   cosmonaut.leaderboard.leaderboard.Params:
     type: object
     description: Params defines the parameters for the module.

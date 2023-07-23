@@ -9,6 +9,8 @@
  * ---------------------------------------------------------------
  */
 
+export type LeaderboardMsgSendIbcTopRankResponse = object;
+
 /**
  * Params defines the parameters for the module.
  */

@@ -2,10 +2,12 @@ import { txClient, queryClient, MissingWalletError , registry} from './module'
 
 import { LeaderboardPacketData } from "./module/types/leaderboard/packet"
 import { NoData } from "./module/types/leaderboard/packet"
+import { IbcTopRankPacketData } from "./module/types/leaderboard/packet"
+import { IbcTopRankPacketAck } from "./module/types/leaderboard/packet"
 import { Params } from "./module/types/leaderboard/params"
 
 
-export { LeaderboardPacketData, NoData, Params };
+export { LeaderboardPacketData, NoData, IbcTopRankPacketData, IbcTopRankPacketAck, Params };
 
 async function initTxClient(vuexGetters) {
 	return await txClient(vuexGetters['common/wallet/signer'], {
@@ -48,6 +50,8 @@ const getDefaultState = () => {
 				_Structure: {
 						LeaderboardPacketData: getStructure(LeaderboardPacketData.fromPartial({})),
 						NoData: getStructure(NoData.fromPartial({})),
+						IbcTopRankPacketData: getStructure(IbcTopRankPacketData.fromPartial({})),
+						IbcTopRankPacketAck: getStructure(IbcTopRankPacketAck.fromPartial({})),
 						Params: getStructure(Params.fromPartial({})),
 						
 		},
@@ -139,7 +143,35 @@ export default {
 		},
 		
 		
+		async sendMsgSendIbcTopRank({ rootGetters }, { value, fee = [], memo = '' }) {
+			try {
+				const txClient=await initTxClient(rootGetters)
+				const msg = await txClient.msgSendIbcTopRank(value)
+				const result = await txClient.signAndBroadcast([msg], {fee: { amount: fee, 
+	gas: "200000" }, memo})
+				return result
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgSendIbcTopRank:Init Could not initialize signing client. Wallet is required.')
+				}else{
+					throw new Error('TxClient:MsgSendIbcTopRank:Send Could not broadcast Tx: '+ e.message)
+				}
+			}
+		},
 		
+		async MsgSendIbcTopRank({ rootGetters }, { value }) {
+			try {
+				const txClient=await initTxClient(rootGetters)
+				const msg = await txClient.msgSendIbcTopRank(value)
+				return msg
+			} catch (e) {
+				if (e == MissingWalletError) {
+					throw new Error('TxClient:MsgSendIbcTopRank:Init Could not initialize signing client. Wallet is required.')
+				} else{
+					throw new Error('TxClient:MsgSendIbcTopRank:Create Could not create message: ' + e.message)
+				}
+			}
+		},
 		
 	}
 }
