@@ -196,3 +196,17 @@ A repository to document my learning about Cosmos (aka Interchain).
     git submodule add git@github.com:cosmos/academy-checkers-ui.git client
     ```
 - [How to update webpack config for a react project created using create-react-app?](https://stackoverflow.com/questions/63280109/how-to-update-webpack-config-for-a-react-project-created-using-create-react-app)
+- When using ```ignite scaffold ...``` commands, many files will be updated. To ensure rollback of changes, make sure to
+    ```
+    ***Commit previous changes first***
+    git add .
+    git commit -m "<commit message>"
+
+    ***Scaffold***
+    ignite scaffold <options>
+
+    ***Rollback***
+    git log
+    git reset --hard <commit hash as seen from 'git log'>
+    git clean -f -x
+    ```
