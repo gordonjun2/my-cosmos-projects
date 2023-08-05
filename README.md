@@ -6,6 +6,7 @@ A repository to document my learning about Cosmos (aka Interchain).
     - The content of Interchain Developer Academy is not fully available to the public. However, some of the content that is available to the public can be found in [Cosmos Developer Portal Tutorial](https://tutorials.cosmos.network/).
     - This repository contains the raw course content from the website (converted from *.mhtml* to *.docx*), projects and quizzes.
     - As Week 1 quiz report is not available yet, it is not certain that all the answers in the quiz are correct. Thus, not academic advice (NAA) XD!
+    - Final Exams' content are not shared as we are told not to.
 - [Figment - Learn Cosmos](https://learn.figment.io/protocols/cosmos)
 
 ## General Installation
